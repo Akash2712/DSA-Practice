@@ -1,5 +1,5 @@
 package Hard;
-
+import java.util.*;
 public class Max_Chunks_II_768 {
 
 	// max partition krne array ke jo har ek partion ko indvidually sort kroge to pura array sort hojyga
@@ -26,7 +26,7 @@ public class Max_Chunks_II_768 {
 		for(int i=0;i<n;i++) {
 			
 			leftmax = Math.max(leftmax, arr[i]);
-			System.out.println(leftmax);
+			
 			if(leftmax <= rightmin[i+1]) {
 				count++;
 			}
@@ -36,7 +36,9 @@ public class Max_Chunks_II_768 {
 	}
 	public static void main(String[] args) {
 		
-		int arr[] = {2,1,3,4,4};
+		Scanner sc = new Scanner (System.in);
+		int arr[] = {2,1,4,3,5};
+		
 		
 		int ans = chunks(arr);
 		

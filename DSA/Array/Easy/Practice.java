@@ -2,35 +2,60 @@ package Easy;
 import java.util.*;
 public class Practice {
 
-	
-	public static void reverse(int arr[]) {
+	public static void transpose(int mat[][]) {
 		
-		int i =0;
-		int j = arr.length-1;
+		int n = mat.length;
+		int m = mat[0].length;
 		
-		while(i<j) {
+		
+		for(int i=0;i<n;i++) {
 			
-			int temp = arr[i];
-			
-			arr[i] = arr[j];
-			arr[j] = temp;
-			
-			i++;
-			j--;
+			for(int j=i;j<m;j++) {
+				
+				if(i==j) {
+					continue;
+				}
+				
+				else {
+					
+					int temp = mat[i][j];
+					
+					mat[i][j] = mat[j][i];
+					
+					mat[j][i] = temp;
+				}
+			}
 		}
 	}
 	
 	public static void main(String[] args) {
 		
-	
-	int arr[] = {1,2,3,4,5,6};
-	
-	reverse(arr);
-	for(int n:arr) {
-		
-		System.out.print(n+ " ");
-	}
-
+       int mat[][] = {{11,12,13},{21,22,23},{31,32,33}};
+       
+       
+       for(int i=0;i<mat.length;i++) {
+    	   
+    	   for(int j =0;j<mat[0].length;j++) {
+    		   
+    		   System.out.print(mat[i][j]+" ");
+    	   }
+    	   
+    	   System.out.println();
+       }
+       
+       transpose(mat);
+       System.out.println();
+       
+  for(int i=0;i<mat.length;i++) {
+    	   
+    	   for(int j =0;j<mat[0].length;j++) {
+    		   
+    		   System.out.print(mat[i][j]+" ");
+    	   }
+    	   
+    	   System.out.println();
+       }
+       
 	}
 
 }
