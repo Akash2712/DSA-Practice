@@ -2,60 +2,61 @@ package Easy;
 import java.util.*;
 public class Practice {
 
-	public static void transpose(int mat[][]) {
+
+	public static int maxArea(int [][]arr) {
+	
+		int m = arr.length;
+		int n = arr[0].length;
 		
-		int n = mat.length;
-		int m = mat[0].length;
+		int max =0;
 		
-		
-		for(int i=0;i<n;i++) {
+		for(int i=0;i<m;i++) {
 			
-			for(int j=i;j<m;j++) {
+			for(int j=0;j<n;j++) {
 				
-				if(i==j) {
-					continue;
-				}
-				
-				else {
+				if(arr[i][j]==1) {
+					max = Math.max(max, count_Island(i,j,arr));
 					
-					int temp = mat[i][j];
-					
-					mat[i][j] = mat[j][i];
-					
-					mat[j][i] = temp;
 				}
 			}
 		}
+		
+		return max;
 	}
 	
-	public static void main(String[] args) {
+	public static int count_Island( int i , int j,int arr[][]  ) {
 		
-       int mat[][] = {{11,12,13},{21,22,23},{31,32,33}};
-       
-       
-       for(int i=0;i<mat.length;i++) {
-    	   
-    	   for(int j =0;j<mat[0].length;j++) {
-    		   
-    		   System.out.print(mat[i][j]+" ");
-    	   }
-    	   
-    	   System.out.println();
-       }
-       
-       transpose(mat);
-       System.out.println();
-       
-  for(int i=0;i<mat.length;i++) {
-    	   
-    	   for(int j =0;j<mat[0].length;j++) {
-    		   
-    		   System.out.print(mat[i][j]+" ");
-    	   }
-    	   
-    	   System.out.println();
-       }
-       
+		 if(i<0 || j<0 || i>=arr.length || j>= arr[0].length ||arr[i][j]<=0) {
+			 return 0;
+		 }
+		 
+		 
+		 arr[i][j]=-1;
+		 
+		 
+		 int a = count_Island(i-1,j,arr);
+		 int b = count_Island(i+1,j,arr);
+		 int c = count_Island(i,j+1,arr);
+		 int d = count_Island(i,j-1,arr);
+		 
+		 
+		 int r = a+b+c+d;
+		 
+		 return 1+r;
+	}
+	
+public static void main(String[] args) {
+		
+   
+    int arr[][] = {{0,0,1,0,0,0,0,1,0,0,0,0,0},{0,0,0,0,0,0,0,1,1,1,0,0,0},{0,1,1,0,1,0,0,0,0,0,0,0,0}
+                  ,{0,1,0,0,1,1,0,0,1,0,1,0,0},{0,1,0,0,1,1,0,0,1,1,1,0,0},{0,0,0,0,0,0,0,0,0,0,1,0,0}
+                  ,{0,0,0,0,0,0,0,1,1,1,0,0,0},{0,0,0,0,0,0,0,1,1,0,0,0,0}};
+  
+    int ans = maxArea(arr);
+    
+    System.out.println(ans);
+		
 	}
 
 }
+ 

@@ -55,15 +55,15 @@ public class Faulty_Keyboard_925 {
 		
 		// check whole name is traverse or not
 		
-		return i<n ? false:true;
+		return i<m ? false:true;
 		
 	}
 	
 	public static void main(String[] args) {
 		
-		String name = "";
+		String name = "alex";
 		
-		String typed = "";
+		String typed = "aaleex";
 		
 		boolean ans = isValid(name , typed);
 		
