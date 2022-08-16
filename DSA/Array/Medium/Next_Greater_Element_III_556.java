@@ -91,7 +91,7 @@ public class Next_Greater_Element_III_556 {
 		
 
 		
-		int n =2147483486;
+		int n =12;
 		
 		System.out.println(greater(n));
 	

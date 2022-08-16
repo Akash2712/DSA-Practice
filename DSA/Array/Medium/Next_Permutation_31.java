@@ -72,7 +72,7 @@ public class Next_Permutation_31 {
 	}
 	public static void main(String[] args) {
 	
-		 int arr[] = {1,2,3};
+		 int arr[] = {1,1,5};
 		 
 		 nextPermutation(arr);
 		 
