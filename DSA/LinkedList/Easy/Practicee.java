@@ -3,56 +3,49 @@ package Easy;
 import java.util.*;
 public class Practicee {
 
-	public static Node input() {
+
+	public static int unique(String words[] , String str[]) {
 		
-		Scanner sc = new Scanner (System.in);
 		
-	   Node head = null;
-	   
-	   Node tail = null;
+		HashMap<Character ,String> map = new HashMap<>();
 		
-	   
-	   int data = sc.nextInt();
-		while(data!=-1) {
+		char ch = 'a';
+		for(int i=0;i<str.length;i++) {
 			
-			Node newNode = new Node(data);
-			
-			if(head==null) {
-				head = newNode;
-				tail =newNode;
-			}
-			else {
-				
-				tail.next = newNode;
-				
-				tail = tail.next;
-			}
-			
-			data = sc.nextInt();
+			map.put(ch, str[i]);
+			ch++;
 		}
 		
 		
-		return head;
-	}
+    	Set<String> set = new HashSet<>();
 	
-	
-	public static void print(Node head) {
+	    for(int i=0;i<words.length;i++) {
 		
+		String s = words[i];
 		
-		while(head!=null) {
+		String res = "";
+		for(int j=0;j<s.length();j++) {
 			
-			System.out.print(head.data+" ");
-			
-			head= head.next;
+			res+= map.get(s.charAt(j));
 		}
+		
+		set.add(res);
 	}
+		
+		return set.size();
+	}
+	
+
 	public static void main(String[] args) {
 		
-  Node head =		input();
+        String arr[] = {"a"};
+        
+        String str[] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
+        		"--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        
+        int ans= unique(arr ,str);
 		
-  print(head);
-		
-		
+        System.out.println(ans);
 
 	}
 

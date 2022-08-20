@@ -43,22 +43,34 @@ public class Middle_Of_LinkedList_876 {
 		Node fast = head;
 		
 		
-		while(fast!=null && fast.next!=null) {
+		int count =0;
+		while(fast!=null) {
 			
-			slow = slow.next;
+		//	System.out.println(fast.data);
 			
+			
+			System.out.println("Iteration" +count++);
 			fast = fast.next.next;
+			slow = slow.next;
 		}
 		
 		return slow;
 	}
 	public static void main(String[] args) {
 		
-		Node head = input();
+	/*	Node head = input();
 		
 		Node mid = middle(head);
 		
-		System.out.println(mid.data);
+		System.out.println(mid.data);*/
+		
+		
+		Node<Integer> temp = new Node(1);
+		
+		Node<Integer> head = temp.next;
+		
+		Node<Integer> temp1 = head.next;
+		System.out.println(temp1==null);
 
 	}
 
